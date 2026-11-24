@@ -13,7 +13,6 @@
                 <option value="{{ $value }}" @selected(old('role', $staff?->role ?? \App\Models\User::ROLE_STAFF) === $value)>{{ $label }}</option>
             @endforeach
         </select>
-        <p class="mt-1.5 text-xs text-slate-500">Admins can manage everything. Staff can only view products and their stock.</p>
         @error('role')<p class="mt-1.5 text-sm text-red-600" role="alert">{{ $message }}</p>@enderror
     </div>
     <div class="grid gap-5 sm:grid-cols-2">
@@ -29,7 +28,7 @@
                 <input id="f-avatar" name="avatar" type="file" accept="image/jpeg,image/png,image/webp"
                        @error('avatar') aria-invalid="true" @enderror
                        class="block w-full text-sm text-slate-600 file:mr-3 file:rounded-lg file:border-0 file:bg-slate-100 file:px-3 file:py-2 file:text-sm file:font-medium file:text-slate-700 hover:file:bg-slate-200">
-                <p class="mt-1.5 text-xs text-slate-500">JPEG, PNG or WebP, up to 2 MB. Cropped to a square automatically.</p>
+                <p class="mt-1.5 text-xs text-slate-500">JPEG, PNG or WebP, up to 2 MB. Cropped to a circle automatically.</p>
                 @error('avatar')<p class="mt-1.5 text-sm text-red-600" role="alert">{{ $message }}</p>@enderror
                 @if($staff?->avatar)
                     <label class="mt-3 flex items-center gap-2 text-sm text-slate-700">
